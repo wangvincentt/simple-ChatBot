@@ -31,7 +31,7 @@ io.on('connect', function(socket) {
   socket.on('loaded', function(){// we wait until the client has loaded and contacted us that it is ready to go.
 
   socket.emit('answer',"Hey, Hello I am \"___*-\" a simple chat bot example."); //We start with the introduction;
-  setTimeout(timedQuestion, 2500, socket,"What is your Name?"); // Wait a moment and respond with a question.
+  setTimeout(timedQuestion, 2500, socket,"What do you want me to call?"); // Wait a moment and respond with a question.
 
 });
   socket.on('message', (data)=>{ // If we get a new message from the client we process it;
@@ -53,15 +53,15 @@ function bot(data,socket,questionNum) {
   if (questionNum == 0) {
   answer= 'Hello ' + input + ' :-)';// output response
   waitTime =2000;
-  question = 'How old are you?';			    	// load next question
+  question = 'In what year you born?';			    	// load next question
   }
   else if (questionNum == 1) {
-  answer= 'Really ' + input + ' Years old? So that means you where born in: ' + (2018-parseInt(input));// output response
+  answer= 'So that means you are ' + (2018-parseInt(input)) + ' years old';// output response
   waitTime =2000;
-  question = 'Where do you live?';			    	// load next question
+  question = 'Where do you come from?';			    	// load next question
   }
   else if (questionNum == 2) {
-  answer= ' Cool! I have never been to ' + input+'.';
+  answer= ' Cool! I hope I will have chance to ' + input+'.';
   waitTime =2000;
   question = 'Whats your favorite Color?';			    	// load next question
   }
@@ -92,7 +92,7 @@ function bot(data,socket,questionNum) {
   // load next question
   }
   else{
-    answer= 'I have nothing more to say!';// output response
+    answer= 'Do you have any comments? Please email 1234@cornell.edu';// output response
     waitTime =0;
     question = '';
   }
